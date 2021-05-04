@@ -1,0 +1,148 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    margin-top: -40px;
+    width: 100%;
+	height: 200px;
+    background-color: black;
+}
+nav h1{
+    font-size: 50px;
+    color: bisque;
+    text-align: center;
+}
+
+nav h6{
+    font-size: 27px;
+    margin-top: -40px;
+    color: cornflowerblue;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.dat{
+     margin-right: 40px;
+}
+
+.inp{
+    width: 300px;
+    color: white;
+    float: right;
+    margin-right: 40px;
+    font-size: 24px;
+}
+
+.inpu{
+    width: 300px;
+    color: white;
+    float: right;
+    margin-right: 40px;
+    font-size: 24px;
+    margin-top: -18px;
+}
+.real{
+    border: 3px rgb(53, 128, 53);
+    margin-left: 17%;
+    margin-right: 17%;
+}
+
+.top{
+    margin-top: 20px;
+}
+.top input{
+    margin-left: 85px;
+    width:200px;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 3px;
+    border:1px solid grey;
+    outline: none;
+    z-index: +5;
+}
+
+.down{
+    margin-top: 20xpx;
+}
+
+.down input{
+    margin-left: 70px;
+    width:200px ;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border:1px solid grey;
+    outline: none;
+    z-index: +5;
+}
+
+
+#sub{
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: black;
+    border:1px solid grey;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    padding-left: 0;
+    transition: all 2s 0s;
+    color: white;
+}
+#sub:hover{
+    background-color: rgb(15, 18, 199);
+    transition: all 0.5s 0s;
+}
+#bux{
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(6, 3, 37);
+    border:1px solid grey;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    padding-left: 0;
+    transition: all 2s 0s;
+    color: white;
+}
+#bux:hover{
+    background-color: rgb(16, 90, 65);
+    transition: all 0.5s 0s;
+}
+
+#bord{
+    border: 3px solid brown;
+}
+
+#check{
+    width: 130px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(11, 129, 41);
+    border:1px solid grey;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    padding-left: 0;
+    transition: all 2s 0s;
+    color: white;
+}
+
+#check:hover{
+    background-color: rgb(51, 15, 29);
+    transition: all 0.5s 0s;
+}
+
+
+
+#butt:hover{
+    background-color: rgb(75, 68, 68);
+    transition: all 0.5s 0s;
+}
+/* @media screen and (min-width: 1000px){
+
+} */

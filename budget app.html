@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="budget.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="images/jpg" href="images/imgapp.jpg">
+    <title></title>
+</head>
+<body>
+    <nav>
+        <h1>My Budget <a style="font-family: cursive;">App</a></h1>
+         <div id="dat" style="text-align: right; margin-left: 550px; color: white;" class="dat"></div>
+         <input type="text" name="" id="beg" class="inp" style="color: black; outline: none;" readonly=""><br>
+
+        <input type="text" name="" id="left" class="inpu" style="color: black; outline: none;" readonly="">
+   
+       
+    </nav><br><br><br>
+    <div class="real">
+            <div class="top"><br><br>
+                <b> BUDGET:</b>
+                   <!--  <input type="date" id="inp" placeholder="date"> -->
+                    <input type="number" id="details" placeholder="Amount">
+                    <input id="bux" onclick="save()" value="Recharge" type="submit"><br><br><br>
+            </div>
+            <div class="down">
+                <b> EXPENSES:</b>
+                    <input type="text" id="sell" placeholder="Quality">
+                    <input type="number" id="deta" placeholder="Amount">
+                    <input id="sub" onclick="set()" value="Set item" type="submit"><br><br>
+
+                    <button id="check" onclick="budget()">Budget History</button>
+                    <button id="check" onclick="expen()" id="bug">Expenses History</button>
+            </div><br>
+        
+
+        <div id="bord">
+
+        </div>
+        <table id="table" class="red" style="border: 3px solid green; width: 788px;">
+        <tr><th>date</th><th>budget</th></tr>
+        <tbody  id="show">
+            
+        </tbody><br><br>
+        </table><br> 
+
+
+         <table  id="tab" class="red" style="border: 3px red; width: 788px;">
+        <tr><th>Item</th><th>Amount</th></tr>
+        <tbody  id="oja">
+            
+        </tbody><br><br>
+        </table><br> 
+</div>
+   
+    
+
+     
+<script>
+
+if(localStorage.notes){
+     let myArr = JSON.parse(localStorage.notes);
+      let lastbud=myArr[myArr.length-1].Budget;
+beg.value=lastbud
+}
+
+     let da = new Date();
+            te = da.toDateString();
+            dat.innerHTML = te;
+
+            fy = (eval(0.5 * details.value));                
+            sv = (eval(0.75 * details.value));
+            let ge = document.getElementById('details').value;
+
+
+    let save =()=> {
+                
+
+                document.getElementById('details').disabled =true;
+
+                let arr;
+                let bux = {};
+                let ge = document.getElementById('details').value;
+                beg.value = "Available Balance: " + ge;
+                document.getElementById('beg').disabled =true;
+
+                if (localStorage.getItem('notes') != null){
+                    arr = JSON.parse(localStorage.notes);
+                } else {
+                    arr = [];
+                }
+
+                beg = {
+                    Date: te,
+                    Budget: ge,
+                    // Preview: "<input class='btn btn-primary' type='button' value ='view' onclick='set()' />"
+                }
+                arr.push(beg);
+                // show.innerHTML= arr[0].Preview;
+                localStorage.setItem('notes', JSON.stringify(arr));
+            }
+
+
+
+
+
+    set =()=>{
+                let arr;
+                // let details= {};
+                let it = document.getElementById('sell').value;
+                let am = document.getElementById('deta').value;
+
+                if (localStorage.getItem('teeks') != null){
+                    arr = JSON.parse(localStorage.teeks);
+                } else {
+                    arr = [];
+                }
+
+                details = {
+                    Quality: it,
+                    Amount: Number(am)
+                }
+
+                arr.push(details);
+                localStorage.setItem('teeks', JSON.stringify(arr));                
+            }
+
+
+
+    let budget=()=>{
+                    let myTable = document.getElementById('show');
+                     let myArr = JSON.parse(localStorage.notes);
+
+                        myTable.innerHTML = '';
+                         myArr.forEach(
+                             function (each, i) {
+                     myTable.innerHTML += `<tr><td>${each.Date}</td><td>${each.budget}</td></tr>`
+                        }
+                    )
+
+                    let sum = document.getElementById('table'), sumVal = 0;
+                    for (let i = 1; i < table.rows.length; i++){
+                        sumVal = sumVal + parseInt(table.rows[i].cells[1].innerHTML)
+                        }   
+        
+        }
+
+
+    let expen=()=> {
+            let myTable = document.getElementById('oja');
+            let myArr = JSON.parse(localStorage.teeks);
+
+            myTable.innerHTML = '';
+                myArr.forEach(
+                    function (each, i) {
+            myTable.innerHTML += `<tr><td>${each.Quality}</td><td>${each.Amount}</td></tr>`
+                    }
+                )
+
+            let sum = document.getElementById('tab'), sumVal = 0;
+            for (let i = 1; i < tab.rows.length; i++){
+                sumVal = sumVal + parseInt(tab.rows[i].cells[1].innerHTML)
+            }
+            bm = (eval(details.value - sumVal));
+            left.value = "Amount Left: " + bm;
+
+            if (bm = ge || bm > fy){
+                document.getElementById("beg").style.backgroundColor = "lightgreen";
+            } else if (bm <= fy || bm > sv){
+                document.getElementById("beg").style.backgroundColor = "lightyellow";
+            } else if (bm <= sv){
+                document.getElementById("beg").style.backgroundColor = "lightcoral";
+            } else if (details.value == ""){
+                document.getElementById('beg').value = "";
+            }
+
+        }
+
+           
+                       
+           
+</script>    
+
+</body>
+</html>
